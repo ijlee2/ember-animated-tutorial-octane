@@ -1,0 +1,57 @@
+.skill-pill {
+    min-width: fit-content;
+    min-width: -moz-fit-content;
+    margin: 0 0.25rem 0.75rem 0;
+    border-radius: 0.75rem;
+
+    cursor: pointer;
+    display: inline-block;
+
+    font-size: $font-size-sm;
+
+    input {
+        display: none;
+    }
+
+    label {
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        padding: 0.33rem 1rem;
+
+        .material-icons {
+            margin-right: 0.25rem;
+
+            font-size: $font-size-md;
+        }
+    }
+
+    &--backend {
+        background-color: $color-amber;
+    }
+
+    &--frontend {
+        background-color: $color-cyan;
+    }
+
+    &--miscellaneous {
+        background-color: $color-green;
+    }
+
+    &:hover {
+        background-color: $color-navy;
+        color: $color-light-blue;
+
+        transition: all 0.1s ease-in;
+    }
+
+    &:last-of-type {
+        margin-right: 0;
+    }
+}
+
+.media-xxs {
+    .skill-pill {
+        font-size: $mobile-font-size-sm;
+    }
+}

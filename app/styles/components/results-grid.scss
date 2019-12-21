@@ -1,0 +1,159 @@
+.results-grid {
+    padding-right: 1rem;
+    overflow-y: auto;
+
+    display: grid;
+    grid-auto-rows: max-content;
+    grid-gap: 1rem;
+
+    &__card {
+        height: 100%;
+        border: $line-thin solid $color-silver;
+        border-radius: 0.25rem;
+
+        cursor: pointer;
+        display: grid;
+        grid-template-areas:
+            "header"
+            "experiences"
+            "skills";
+        grid-template-rows: 4rem min-content min-content;
+        grid-template-columns: 1fr;
+
+        color: $color-black;
+
+        &__header {
+            padding: 0.5rem 1rem;
+
+            display: flex;
+            flex-direction: row-reverse;
+            align-items: center;
+
+            &__name {
+                flex: 1;
+
+                color: $color-black;
+                font-size: $font-size-lg;
+                font-weight: 700;
+                letter-spacing: 0.0625rem;
+            }
+
+            &__score {
+                margin-right: 1rem;
+
+                color: $color-orange;
+                font-size: $font-size-xl;
+            }
+        }
+
+        &__body {
+            &__experiences,
+            &__skills {
+                padding: 0.5rem 1rem 1rem;
+
+                & > span {
+                    margin-bottom: 0.8rem;
+
+                    display: block;
+                }
+            }
+
+            &__experiences {
+                grid-area: experiences;
+
+                .item {
+                    margin-bottom: 1rem;
+
+                    &__title,
+                    &__achievement {
+                        .highlighted {
+                            background-color: $color-yellow;
+                        }
+                    }
+
+                    &__achievement {
+                        list-style: disc inside;
+                        margin-left: 2rem;
+
+                        font-size: $font-size-sm;
+                    }
+                }
+            }
+
+            &__skills {
+                grid-area: skills;
+
+                .my-list {
+                    font-size: $font-size-sm;
+
+                    .highlighted {
+                        background-color: $color-yellow;
+                    }
+                }
+            }
+        }
+
+        &:hover {
+            @include box-shadow(2);
+            background-color: $color-light-silver;
+
+            transition: all 0.1s ease-in;
+        }
+    }
+}
+
+.media-xxs,
+.media-xs,
+.media-sm {
+    .results-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+.media-xxs {
+    .results-grid {
+        &__card {
+            &__header {
+                &__name {
+                    font-size: $mobile-font-size-lg;
+                }
+
+                &__score {
+                    font-size: $mobile-font-size-xl;
+                }
+            }
+
+            &__body {
+                &__experiences .item__achievement,
+                &__skills .my-list {
+                    font-size: $mobile-font-size-sm;
+                }
+            }
+        }
+    }
+}
+
+.media-md,
+.media-lg {
+    .results-grid {
+        grid-template-columns: repeat(2, minmax(24rem, 1fr));
+    }
+}
+
+.media-lg {
+    .results-grid {
+        grid-template-columns: repeat(3, minmax(24rem, 1fr));
+    }
+}
+
+.media-xl {
+    .results-grid {
+        grid-template-columns: repeat(3, minmax(32rem, 1fr));
+    }
+}
+
+.media-xxl {
+    .results-grid {
+        grid-template-columns: repeat(4, minmax(32rem, 1fr));
+    }
+}

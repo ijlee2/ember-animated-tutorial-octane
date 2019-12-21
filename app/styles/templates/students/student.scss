@@ -1,0 +1,64 @@
+.my-route__students__student {
+    display: grid;
+    grid-gap: 1rem;
+
+    .my-students {
+        overflow-y: auto;
+
+        .students-grid {
+            grid-template-columns: minmax(32rem, 1fr);
+        }
+    }
+}
+
+.media-xxs{
+    .my-route__students__student {
+        grid-template-columns: 7rem auto;
+
+        .my-students .students-grid {
+            grid-template-columns: 1fr;
+        }
+    }
+}
+
+.media-xs,
+.media-sm {
+    .my-route__students__student {
+        grid-template-columns: 9rem auto;
+
+        .my-students .students-grid {
+            grid-template-columns: 1fr;
+        }
+    }
+}
+
+.media-md,
+.media-lg {
+    .my-route__students__student {
+        grid-template-columns: 25rem auto;
+
+        .my-students .students-grid {
+            grid-template-columns: 1fr;
+        }
+    }
+}
+
+.media-xl {
+    .my-route__students__student {
+        grid-template-columns: 33rem auto;
+
+        .my-students .students-grid {
+            grid-template-columns: 1fr;
+        }
+    }
+}
+
+.media-xxl {
+    .my-route__students__student {
+        grid-template-columns: 66rem auto;
+
+        .my-students .students-grid {
+            grid-template-columns: 1fr 1fr;
+        }
+    }
+}

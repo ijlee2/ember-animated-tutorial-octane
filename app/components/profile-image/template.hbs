@@ -1,0 +1,17 @@
+<div class="profile-image">
+    {{#if (or (not @imageUrl) this.failedToLoadImage)}}
+        <MaterialIcon
+            @icon="person"
+        />
+
+    {{else}}
+        <img
+            data-test-image
+            alt=""
+            role="presentation"
+            src={{@imageUrl}}
+            {{on "error" this.loadDefaultImage}}
+        >
+
+    {{/if}}
+</div>

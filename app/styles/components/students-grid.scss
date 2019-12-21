@@ -1,0 +1,208 @@
+.students-grid {
+    padding-right: 1rem;
+    overflow-y: auto;
+
+    display: grid;
+    grid-auto-rows: max-content;
+    grid-gap: 1rem;
+
+    &__card {
+        $image-container-width: 25%;
+        $data-container-width: 75%;
+
+        height: 8rem;
+        border: $line-thin solid $color-silver;
+        border-radius: 0.25rem;
+
+        cursor: pointer;
+        display: grid;
+        grid-template-areas:
+            "header name"
+            "header email"
+            "header phone";
+        grid-template-rows: 1.5fr 1fr 1fr;
+        grid-template-columns: 25% 75%;
+
+        &__header {
+            grid-area: header;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        &__body {
+            &__name,
+            &__email,
+            &__phone {
+                padding: 0 1rem 0 0.75rem;
+
+                display: flex;
+                align-items: center;
+
+                color: $color-black;
+            }
+
+            &__name {
+                grid-area: name;
+
+                font-family: "PT Serif", serif;
+                font-size: $font-size-lg;
+                font-weight: 700;
+                letter-spacing: 0.0625rem;
+            }
+
+            &__email, &__phone {
+                .material-icons {
+                    opacity: 0.87;
+                    margin-right: 0.5rem;
+                }
+
+                a {
+                    @include ellipsis;
+                }
+            }
+
+            &__email {
+                grid-area: email;
+                margin-bottom: 0.5rem;
+            }
+
+            &__phone {
+                grid-area: phone;
+                margin-bottom: 0.5rem;
+            }
+        }
+
+        &:hover {
+            @include box-shadow(2);
+            background-color: $color-light-silver;
+
+            transition: all 0.1s ease-in;
+        }
+    }
+
+    & > li > a.active {
+        .students-grid__card {
+            border-color: $color-orange;
+
+            &:hover {
+                @include box-shadow(0);
+                background-color: $color-white;
+
+                transition: none;
+            }
+        }
+    }
+}
+
+.media-xxs,
+.media-xs,
+.media-sm {
+    .students-grid {
+        grid-template-columns: repeat(3, minmax(6rem, 1fr));
+
+        &__card {
+            grid-template-areas:
+                "header";
+            grid-template-rows: 1fr;
+            grid-template-columns: 1fr;
+
+            &__header {
+                position: relative;
+
+                &__initials {
+                    position: absolute;
+                    z-index: 1;
+
+                    color: $color-white;
+                    font-family: "PT Serif", serif;
+                    font-size: $font-size-xl;
+                    font-weight: 700;
+                    letter-spacing: 0.125rem;
+                    text-shadow: 0.075rem 0.075rem 0.25rem $color-black;
+                }
+            }
+
+            &__body {
+                &__name,
+                &__email,
+                &__phone {
+                    display: none;
+                }
+            }
+        }
+    }
+}
+
+.media-xxs {
+    .students-grid {
+        &__card {
+            height: 6rem;
+
+            &__header {
+                &__initials {
+                    font-size: calc(6/8 * #{$mobile-font-size-xl});
+                }
+            }
+        }
+    }
+}
+
+.media-xs {
+    .students-grid {
+        grid-template-columns: repeat(3, minmax(8rem, 1fr));
+    }
+}
+
+.media-sm {
+    .students-grid {
+        grid-template-columns: repeat(4, minmax(8rem, 1fr));
+    }
+}
+
+.media-md,
+.media-lg {
+    .students-grid {
+        grid-template-columns: repeat(2, minmax(24rem, 1fr));
+
+        &__card {
+            grid-template-areas:
+                "name"
+                "email"
+                "phone";
+            grid-template-rows: 1.5fr 1fr 1fr;
+            grid-template-columns: 1fr;
+
+            &__header {
+                display: none;
+            }
+
+            &__body {
+                &__name,
+                &__email,
+                &__phone {
+                    padding: 0 1rem;
+                }
+            }
+        }
+    }
+}
+
+.media-lg {
+    .students-grid {
+        grid-template-columns: repeat(3, minmax(24rem, 1fr));
+    }
+}
+
+.media-xl {
+    .students-grid {
+        grid-template-columns: repeat(3, minmax(32rem, 1fr));
+    }
+}
+
+.media-xxl {
+    .students-grid {
+        grid-template-columns: repeat(4, minmax(32rem, 1fr));
+    }
+}

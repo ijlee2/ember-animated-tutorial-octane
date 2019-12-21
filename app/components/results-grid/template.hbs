@@ -1,0 +1,14 @@
+<ul class="results-grid">
+    {{#each (sort-by "metadata.score:desc" "lastName" "firstName" @students) as |student index|}}
+        <li {{fade-up id=index delay=(multiply 150 index)}}>
+            <LinkTo
+                @route="students.student"
+                @model={{student.id}}
+            >
+                <ResultsGrid::Card
+                    @student={{student}}
+                />
+            </LinkTo>
+        </li>
+    {{/each}}
+</ul>

@@ -1,0 +1,22 @@
+<div
+    class="skill-pill skill-pill--{{@skill.category}}"
+>
+    <Input
+        data-test-pill={{@skill.name}}
+        @id={{this.inputId}}
+        @type="checkbox"
+        @name="skills"
+        @checked={{@skill.isSelected}}
+        @change={{@onClickHandler}}
+    />
+
+    <label for={{this.inputId}}>
+        <MaterialIcon
+            @icon={{if @skill.isSelected "remove_circle" "add_circle"}}
+        />
+
+        <span data-test-field={{t "component.skill-pill.skill"}}>
+            {{@skill.name}}
+        </span>
+    </label>
+</div>

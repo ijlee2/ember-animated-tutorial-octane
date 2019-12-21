@@ -1,0 +1,29 @@
+<div class="my-application {{media "classNames"}}">
+    <header>
+        <NavigationDrawer
+            @name={{t "layout.application.navigation.name"}}
+            @navItems={{array
+                (hash
+                    route="index"
+                    label=(t "layout.application.navigation.link.home")
+                )
+                (hash
+                    route="students"
+                    label=(t "layout.application.navigation.link.students")
+                )
+                (hash
+                    route="search"
+                    label=(t "layout.application.navigation.link.search")
+                )
+            }}
+        />
+    </header>
+
+    <main class="my-main {{this.currentRoute}}">
+        {{outlet}}
+    </main>
+
+    <footer class="my-footer">
+        <span>{{t "layout.application.copyright" htmlSafe=true}}</span>
+    </footer>
+</div>

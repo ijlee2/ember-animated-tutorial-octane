@@ -1,0 +1,121 @@
+<article
+    data-test-details
+    class="student-details"
+>
+    <header {{fade-up id=@student.id}}>
+        <h1 data-test-field={{t "component.student-details.name"}}>{{@student.fullName}}</h1>
+    </header>
+
+    <section
+        class="student-details__profile-image"
+        {{fade-up id=@student.id}}
+    >
+        <ProfileImage
+            @imageUrl={{@student.imageUrl}}
+        />
+    </section>
+
+    <section
+        class="student-details__email"
+        {{fade-up id=@student.id delay=50}}
+    >
+        <header>
+            <h2>{{t "component.student-details.email"}}</h2>
+        </header>
+
+        <a
+            data-test-field={{t "component.student-details.email"}}
+            href="mailto:{{@student.email}}"
+            title={{@student.email}}
+        >
+            {{@student.email}}
+        </a>
+    </section>
+
+    <section
+        class="student-details__phone"
+        {{fade-up id=@student.id delay=150}}
+    >
+        <header>
+            <h2>{{t "component.student-details.phone"}}</h2>
+        </header>
+
+        <a
+            data-test-field={{t "component.student-details.phone"}}
+            href="tel:{{@student.internationalPhone}}"
+            title={{@student.phone}}
+        >
+            {{@student.phone}}
+        </a>
+    </section>
+
+    <section
+        class="student-details__education"
+        {{fade-up id=@student.id delay=250}}
+    >
+        <header>
+            <h2>{{t "component.student-details.education"}}</h2>
+        </header>
+
+        <ul>
+            {{#each (sort-by "name" this.resume.degrees) as |degree|}}
+                <li
+                    data-test-field={{t "component.student-details.degree"}}
+                    class="item"
+                >
+                    {{degree.name}}
+                </li>
+            {{/each}}
+        </ul>
+    </section>
+
+    <section
+        class="student-details__experiences"
+        {{fade-up id=@student.id delay=350}}
+    >
+        <header>
+            <h2>{{t "component.student-details.experiences"}}</h2>
+        </header>
+
+        <ul class="my-list">
+            {{#each this.resume.experiences as |experience|}}
+                <li
+                    data-test-field={{t "component.student-details.experience"}}
+                    class="item"
+                >
+                    <h3 data-test-title class="item__title">
+                        {{experience.title}} at {{experience.company}}
+                    </h3>
+
+                    <ul>
+                        {{#each experience.achievements as |achievement|}}
+                            <li data-test-achievement class="item__achievement">
+                                {{achievement}}
+                            </li>
+                        {{/each}}
+                    </ul>
+                </li>
+            {{/each}}
+        </ul>
+    </section>
+
+    <section
+        class="student-details__skills"
+        {{fade-up id=@student.id delay=450}}
+    >
+        <header>
+            <h2>{{t "component.student-details.skills"}}</h2>
+        </header>
+
+        <ul>
+            {{#each (sort-by "category" "name" this.resume.skills) as |skill|}}
+                <li
+                    data-test-field={{t "component.student-details.skill"}}
+                    class="item item--{{skill.category}}"
+                >
+                    {{skill.name}}
+                </li>
+            {{/each}}
+        </ul>
+    </section>
+</article>

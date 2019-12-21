@@ -1,0 +1,11 @@
+<div class="my-students">
+    {{#if this.showHeader}}
+        <h1>{{t "layout.students.header.students"}}</h1>
+    {{/if}}
+
+    <StudentsGrid
+        @students={{@model}}
+    />
+</div>
+
+{{outlet}}

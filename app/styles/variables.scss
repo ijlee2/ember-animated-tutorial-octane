@@ -1,0 +1,26 @@
+$color-amber: #ffe57f;
+$color-black: rgba(0, 0, 0, 0.87);
+$color-blue: #0074d9;
+$color-cyan: #b2ebf2;
+$color-green: #c5e1a5;
+$color-gray: #607d8b;
+$color-light-blue: hsla(210, 100%, 75%, 1.0);
+$color-light-silver: #eeeeee;
+$color-navy: #001f3f;
+$color-orange: #ffa000;
+$color-silver: #e4e4e4;
+$color-white: #ffffff;
+$color-yellow: #ffdc00;
+
+$font-size-xl: 2.56rem;
+$font-size-lg: 1.6rem;
+$font-size-md: 1rem;
+$font-size-sm: 0.8rem;
+$font-size-xs: 0.391rem;
+
+$line-thin: 0.075rem;
+
+$mobile-font-size-xl: calc(14/16 * #{$font-size-xl});
+$mobile-font-size-lg: calc(14/16 * #{$font-size-lg});
+$mobile-font-size-md: calc(14/16 * #{$font-size-md});
+$mobile-font-size-sm: calc(14/16 * #{$font-size-sm});

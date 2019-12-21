@@ -1,0 +1,42 @@
+.profile-image {
+    $image-width: 6rem;
+
+    img, .material-icons {
+        width: $image-width;
+        height: $image-width;
+    }
+
+    img {
+        object-fit: contain;
+        border-radius: $image-width;
+    }
+
+    .material-icons {
+        border: $line-thin solid $color-orange;
+        border-radius: $image-width;
+
+        color: $color-gray;
+        font-size: calc(0.75 * #{$image-width});
+        opacity: 0.87;
+    }
+}
+
+.media-xxs {
+    .profile-image {
+        $image-width: 4rem;
+
+        img, .material-icons {
+            width: $image-width;
+            height: $image-width;
+        }
+
+        img {
+            border-radius: $image-width;
+        }
+
+        .material-icons {
+            border-radius: $image-width;
+            font-size: calc(0.75 * #{$image-width});
+        }
+    }
+}

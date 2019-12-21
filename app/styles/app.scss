@@ -1,0 +1,183 @@
+@import "reset";
+@import "mixins";
+@import "variables";
+
+body {
+    color: $color-black;
+    font-family: "Open Sans", sans-serif;
+    font-size: 16px;
+    letter-spacing: 0.025rem;
+    line-height: 1.2;
+
+    h1 {
+        margin-bottom: 1rem;
+
+        font-family: "PT Serif", serif;
+        font-size: $font-size-xl;
+        font-weight: 700;
+        letter-spacing: 0.125rem;
+    }
+
+    h2 {
+        margin-top: 1rem;
+        margin-bottom: 0.8rem;
+
+        font-size: $font-size-lg;
+        font-weight: 700;
+        letter-spacing: 0.0625rem;
+    }
+
+    a {
+        color: $color-blue;
+        text-decoration: none;
+    }
+
+    button {
+        width: fit-content;
+        width: -moz-fit-content;
+        border-radius: 0.25rem;
+        padding: 1rem 2rem;
+
+        background-color: $color-gray;
+        color: $color-white;
+        font-size: $font-size-sm;
+        font-weight: 500;
+        letter-spacing: 0.175rem;
+        text-transform: uppercase;
+
+        &:disabled {
+            cursor: not-allowed;
+
+            color: $color-black;
+            opacity: 0.14;
+        }
+
+        &:not(:disabled) {
+            cursor: pointer;
+
+            &:hover {
+                background-color: $color-light-silver;
+                color: $color-black;
+
+                transition: all 0.17s;
+            }
+        }
+    }
+
+    form {
+        fieldset {
+            & > label {
+                margin-bottom: 1rem;
+
+                display: flex;
+                align-items: center;
+            }
+        }
+    }
+
+    input {
+        border: $line-thin solid $color-silver;
+        margin-bottom: 1rem;
+        padding: 0.75rem;
+
+        font-size: $font-size-md;
+    }
+
+    p {
+        margin-bottom: 1.5rem;
+
+        line-height: 2rem;
+    }
+
+    ul.my-list {
+        & > li {
+            margin-bottom: 0.5rem;
+
+            line-height: 2rem;
+            list-style: decimal inside;
+
+            &:last-of-type {
+                margin-bottom: 0;
+            }
+        }
+    }
+
+    .my-application {
+        height: 100vh;
+
+        display: flex;
+        flex-direction: column;
+
+        .my-main {
+            padding: 1rem;
+            overflow-y: auto;
+
+            flex: 1;
+        }
+
+        .my-footer {
+            height: calc(3.2rem - #{$line-thin});
+            border-top: $line-thin solid $color-silver;
+            padding: 0 1rem;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            background-color: $color-navy;
+            color: $color-light-blue;
+            font-size: $font-size-sm;
+
+            a {
+                color: $color-light-blue;
+                text-decoration: underline;
+            }
+        }
+    }
+}
+
+body {
+    .media-xxs {
+        font-size: 14px;
+
+        h1 {
+            font-size: $mobile-font-size-xl;
+        }
+
+        h2 {
+            font-size: $mobile-font-size-lg;
+        }
+
+        button {
+            font-size: $mobile-font-size-sm;
+        }
+
+        input {
+            font-size: $mobile-font-size-md;
+        }
+
+        .my-nav a {
+            font-size: $mobile-font-size-md;
+        }
+
+        .my-footer {
+            font-size: $mobile-font-size-sm;
+        }
+    }
+}
+
+/* Components */
+@import "components/loading";
+@import "components/material-icon";
+@import "components/navigation-drawer";
+@import "components/profile-image";
+@import "components/results-grid";
+@import "components/skill-pill";
+@import "components/students-grid";
+@import "components/student-details";
+
+/* Route Templates */
+@import "templates/search";
+@import "templates/search/results";
+@import "templates/students";
+@import "templates/students/student";

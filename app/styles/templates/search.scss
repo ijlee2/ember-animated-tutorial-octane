@@ -1,0 +1,53 @@
+.my-route__search {
+    display: flex;
+    flex-direction: column;
+
+    .my-form {
+        flex: 1;
+
+        display: flex;
+        flex-direction: column;
+
+        fieldset {
+            flex: 1;
+            overflow-y: hidden;
+            margin-bottom: 1rem;
+
+            display: flex;
+            flex-direction: column;
+
+            .container {
+                flex: 1;
+                height: calc(100% - 2.1rem);
+                overflow-y: hidden;
+
+                display: grid;
+                grid-template-columns: 1fr 1fr;
+                grid-gap: 1rem;
+
+                .available-skills,
+                .selected-skills {
+                    overflow-y: auto;
+                    border: $line-thin solid $color-silver;
+                    padding: 1rem;
+
+                    & > span {
+                        margin-bottom: 1rem;
+
+                        display: block;
+                    }
+                }
+            }
+        }
+    }
+}
+
+.media-xxs,
+.media-xs {
+    .my-route__search .my-form fieldset .container {
+        height: calc(100% - 4.1rem);
+
+        grid-template-columns: 1fr;
+        grid-template-rows: 1fr 1fr;
+    }
+}

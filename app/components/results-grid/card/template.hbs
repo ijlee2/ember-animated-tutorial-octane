@@ -1,0 +1,58 @@
+{{! template-lint-disable no-triple-curlies }}
+<article
+    data-test-card={{@student.fullName}}
+    class="results-grid__card"
+>
+    <header class="results-grid__card__header" title={{@student.fullName}}>
+        <span
+            data-test-field={{t "component.results-grid.card.name"}}
+            class="results-grid__card__header__name"
+        >
+            {{@student.fullName}}
+        </span>
+
+        <span
+            data-test-field={{t "component.results-grid.card.score"}}
+            class="results-grid__card__header__score"
+        >
+            {{@student.metadata.relativeScore}}
+        </span>
+    </header>
+
+    {{#if @student.metadata.experiences}}
+        <section class="results-grid__card__body__experiences">
+            <span>{{t "component.results-grid.card.matched-experiences"}}</span>
+
+            <ul class="my-list">
+                {{#each @student.metadata.experiences as |experience|}}
+                    <li
+                        data-test-field={{t "component.results-grid.card.experience"}}
+                        class="item"
+                    >
+                        <span data-test-title class="item__title">
+                            {{{experience.title}}} {{t "component.results-grid.card.at"}} {{experience.company}}
+                        </span>
+
+                        <ul>
+                            {{#each experience.achievements as |achievement|}}
+                                <li data-test-achievement class="item__achievement">
+                                    {{{achievement}}}
+                                </li>
+                            {{/each}}
+                        </ul>
+                    </li>
+                {{/each}}
+            </ul>
+        </section>
+    {{/if}}
+
+    {{#if @student.metadata.skills}}
+        <section class="section results-grid__card__body__skills">
+            <span>{{t "component.results-grid.card.matched-skills"}}</span>
+
+            <div data-test-skills class="my-list">
+                {{{join ", " (map-by "name" (sort-by "name" @student.metadata.skills))}}}
+            </div>
+        </section>
+    {{/if}}
+</article>

@@ -1,0 +1,52 @@
+<article
+    data-test-card={{@student.fullName}}
+    class="students-grid__card"
+>
+    <header class="students-grid__card__header">
+        {{#if (or (media "isXxs") (media "isXs") (media "isSm"))}}
+            <span class="students-grid__card__header__initials">
+                {{@student.initials}}
+            </span>
+        {{/if}}
+
+        <ProfileImage
+            @imageUrl={{@student.imageUrl}}
+        />
+    </header>
+
+    <section
+        data-test-field={{t "component.students-grid.card.name"}}
+        class="students-grid__card__body__name"
+        title={{@student.fullName}}
+    >
+        {{@student.fullName}}
+    </section>
+
+    <section class="students-grid__card__body__email">
+        <MaterialIcon
+            @icon="email"
+        />
+
+        <a
+            data-test-field={{t "component.students-grid.card.email"}}
+            href="mailto:{{@student.email}}"
+            title={{@student.email}}
+        >
+            {{@student.email}}
+        </a>
+    </section>
+
+    <section class="students-grid__card__body__phone">
+        <MaterialIcon
+            @icon="phone"
+        />
+
+        <a
+            data-test-field={{t "component.students-grid.card.phone"}}
+            href="tel:{{@student.internationalPhone}}"
+            title={{@student.phone}}
+        >
+            {{@student.phone}}
+        </a>
+    </section>
+</article>

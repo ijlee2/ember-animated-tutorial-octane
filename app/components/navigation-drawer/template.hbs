@@ -1,0 +1,26 @@
+<nav
+    data-test-nav={{@name}}
+    aria-label={{@name}}
+    class="navigation-drawer"
+>
+    {{#each @navItems as |navItem|}}
+        <LinkTo
+            data-test-link={{navItem.label}}
+            @route={{navItem.route}}
+        >
+            <span data-test-label>{{navItem.label}}</span>
+
+            {{#animated-if
+                (eq navItem.route this.currentParentRoute)
+                use=this.transition
+                group="navItems"
+                duration=250
+            }}
+                <div class="highlighted" aria-hidden="true">
+                    <div class="highlighted__handle"></div>
+                    <div class="highlighted__body"></div>
+                </div>
+            {{/animated-if}}
+        </LinkTo>
+    {{/each}}
+</nav>

@@ -1,0 +1,68 @@
+component:
+    loading:
+        feedback: Loading
+
+    results-grid:
+        card:
+            name: Name
+            score: Score
+            matched-experiences: Matched Experiences
+            experience: Experience
+            at: at
+            matched-skills: Matched Skills
+
+    skill-pill:
+        skill: Skill
+
+    student-details:
+        name: Name
+        email: Email
+        phone: Phone
+        education: Education
+        degree: Degree
+        experiences: Experiences
+        experience: Experience
+        skills: Skills
+        skill: Skill
+
+    students-grid:
+        card:
+            name: Name
+            email: Email
+            phone: Phone
+
+
+layout:
+    application:
+        navigation:
+            name: Main Navigation
+            link:
+                home: Home
+                students: Students
+                search: Search
+
+        copyright: Created by <a href="https://www.linkedin.com/in/ijlee2/" target="_blank" rel="noopener noreferrer">Isaac J. Lee</a> © 2019
+
+    index:
+        header:
+            home: Home
+            references: References
+
+    search:
+        header:
+            search: Search
+        input:
+            placeholder: I'm looking for the skill ...
+        form:
+            directions: Select up to {numSkills} skills that you believe are very important.
+            available: Available
+            selected: Selected {count, plural, =0 {} other {(#)}}
+            submit: Submit
+
+    search-results:
+        header:
+            results: Results
+
+    students:
+        header:
+            students: Students

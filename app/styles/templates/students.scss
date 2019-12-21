@@ -1,0 +1,9 @@
+.my-route__students {
+    .my-students {
+        height: 100%;
+        overflow-y: hidden;
+
+        display: flex;
+        flex-direction: column;
+    }
+}

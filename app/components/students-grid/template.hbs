@@ -1,0 +1,14 @@
+<ul class="students-grid">
+    {{#each (sort-by "lastName" "firstName" @students) as |student|}}
+        <li>
+            <LinkTo
+                @route="students.student"
+                @model={{student.id}}
+            >
+                <StudentsGrid::Card
+                    @student={{student}}
+                />
+            </LinkTo>
+        </li>
+    {{/each}}
+</ul>

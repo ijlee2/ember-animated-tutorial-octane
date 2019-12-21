@@ -1,0 +1,67 @@
+<h1>{{t "layout.search.header.search"}}</h1>
+
+<Input
+    data-test-search
+    @id="search-skills"
+    @value={{this.query}}
+    @autofocus={{true}}
+    @placeholder={{t "layout.search.input.placeholder"}}
+    {{on "keyup" this.searchSkills}}
+/>
+
+<form
+    class="my-form"
+    {{on "submit" (perform this.searchStudents)}}
+>
+    <fieldset>
+        <label>{{t "layout.search.form.directions" numSkills=this.MAX_NUM_SELECTED_SKILLS}}</label>
+
+        <div class="container">
+            <div
+                data-test-available-skills
+                class="available-skills"
+            >
+                <span>{{t "layout.search.form.available"}}</span>
+
+                {{#each
+                    (sort-by "category" "name" this.filteredAvailableSkills)
+                    as |skill|
+                }}
+                    <SkillPill
+                        @skill={{skill}}
+                        @onClickHandler={{fn this.selectSkill skill}}
+                    />
+                {{/each}}
+            </div>
+
+            <div
+                data-test-selected-skills
+                class="selected-skills"
+            >
+                <span>{{t "layout.search.form.selected" count=this.selectedSkills.length}}</span>
+
+                <AnimatedContainer>
+                    {{#animated-each
+                        (sort-by "category" "name" this.selectedSkills)
+                        use=this.transition
+                        duration=250
+                        as |skill|
+                    }}
+                        <SkillPill
+                            @skill={{skill}}
+                            @onClickHandler={{fn this.unSelectSkill skill}}
+                        />
+                    {{/animated-each}}
+                </AnimatedContainer>
+            </div>
+        </div>
+    </fieldset>
+
+    <button
+        data-test-button={{t "layout.search.form.submit"}}
+        type="submit"
+        disabled={{eq this.selectedSkills.length 0}}
+    >
+        {{t "layout.search.form.submit"}}
+    </button>
+</form>
